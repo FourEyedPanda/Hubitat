@@ -1,7 +1,7 @@
 /**
  *  Copyright 2020 Markus Liljergren (https://oh-lalabs.com)
  *
- *  Version: v1.0.1.1123
+ *  Version: v1.0.1.1124
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -708,6 +708,18 @@ void parseOppoButtonEvent(Map msgMap) {
             sendEvent(name:"pushed", value: btnModified, isStateChange: true, descriptionText: "Button $btn was released")
         }
     }
+}
+
+void push(button) {
+   sendEvent(name: "pushed", value: button, isStateChange: true, type: "digital")
+}
+
+void hold(button) {
+   sendEvent(name: "held", value: button, isStateChange: true, type: "digital")
+}
+
+void release(button) {
+   sendEvent(name: "released", value: button, isStateChange: true, type: "digital")
 }
 
 /**
